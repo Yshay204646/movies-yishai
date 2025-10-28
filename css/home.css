@@ -1,0 +1,7 @@
+body { background: #0f1724; color: #e6eef8; }
+.movie-card { cursor: pointer; transition: transform .12s ease; }
+.movie-card:hover { transform: translateY(-6px); }
+.poster-placeholder { background: linear-gradient(180deg,#1f2937,#111827); height: 300px; border-radius: .5rem; display:flex;align-items:center;justify-content:center;color:#94a3b8; }
+@media (max-width:767px) {
+  .poster-placeholder, .movie-poster { height: 220px; }
+}

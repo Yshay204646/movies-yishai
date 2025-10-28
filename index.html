@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MovieHub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/home.css" />
+</head>
+<body class="bg-dark text-light">
+  <header class="py-3 mb-3 border-bottom">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      <h1 class="h3 mb-2 mb-md-0">🎬 Movies yshay</h1>
+      <div class="d-flex gap-2">
+        <input id="searchInput" class="form-control" placeholder="חפש סרט (מינימום 3 תווים)..." />
+        <button id="searchBtn" class="btn btn-primary">חפש</button>
+        <button id="trendingBtn" class="btn btn-outline-light">Trending</button>
+        <button id="favoritesPageBtn" class="btn btn-outline-warning">מועדפים</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mb-5">
+    <!-- פילטרים -->
+    <section id="filters" class="mb-3">
+      <div class="row g-2">
+        <div class="col-6 col-md-3">
+          <select id="genreSelect" class="form-select">
+            <option value="">כל הז'אנרים</option>
+          </select>
+        </div>
+        <div class="col-6 col-md-3">
+          <input id="yearInput" type="number" class="form-control" placeholder="שנה (לדוג׳ 2023)" />
+        </div>
+        <div class="col-6 col-md-3">
+          <select id="sortSelect" class="form-select">
+            <option value="pop_desc">פופולריות (גבוהה)</option>
+            <option value="pop_asc">פופולריות (נמוכה)</option>
+            <option value="vote_desc">דירוג (גבוהה)</option>
+            <option value="vote_asc">דירוג (נמוכה)</option>
+            <option value="date_desc">תאריך (חדש→ישן)</option>
+            <option value="date_asc">תאריך (ישן→חדש)</option>
+          </select>
+        </div>
+        <div class="col-6 col-md-3 d-flex gap-2">
+          <button id="applyFiltersBtn" class="btn btn-success w-100">החל סינון</button>
+          <button id="clearFiltersBtn" class="btn btn-secondary w-100">נקה</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- תוצאות -->
+    <section id="results" class="row gy-3"></section>
+
+    <!-- דף מועדפים (מוסתר תחילה) -->
+    <section id="favoritesPage" class="d-none">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h2>מועדפים</h2>
+        <div class="d-flex gap-2">
+          <input id="favSearch" class="form-control" placeholder="חפש במועדפים..." />
+          <button id="clearAllFavs" class="btn btn-danger">מחק הכל</button>
+          <button id="backToMain" class="btn btn-outline-light">חזור</button>
+        </div>
+      </div>
+      <div id="favoritesList" class="row gy-3"></div>
+    </section>
+  </main>
+
+  <!-- פרטי סרט - מודאל -->
+  <div class="modal fade" id="movieModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 id="modalTitle" class="modal-title"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalBodyContent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="/js/home.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
